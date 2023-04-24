@@ -3,10 +3,11 @@ https://docs.nestjs.com/modules
 */
 
 import { Module } from '@nestjs/common';
+import { UserController } from './user.controller';
 
 @Module({
-    imports: [],
-    controllers: [],
-    providers: [],
+  imports: [],
+  controllers: [UserController],
+  providers: [],
 })
 export class UserModule {}
