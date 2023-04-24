@@ -5,11 +5,14 @@ https://docs.nestjs.com/modules
 */
 
 import { Module } from '@nestjs/common';
-import { PrismaModule } from 'src/prisma/prisma.module';
+import { PrismaModule } from '../prisma/prisma.module';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './strategy/jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [PrismaModule],
+  imports: [JwtModule.register({}), PrismaModule, PassportModule],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
 })
 export class AuthModule {}
